@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Customized Website</title>
+</head>
+<body style="background: linear-gradient(135deg, #FF9933, #FF6699, #FFCC00); font-family: Arial, sans-serif; margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column;">
+
+    <!-- IITB Logo in the Upper Left Corner -->
+    <img src="iitblogo.png" alt="IIT Bombay Logo" style="
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 60px;
+        height: auto;
+    ">
+
+    <!-- Welcome Message -->
+    <script>
+        window.onload = function () {
+            let welcomeMsg = document.getElementById("welcome-message");
+            welcomeMsg.style.display = "block";
+            welcomeMsg.style.animation = "fadeIn 2s";
+        };
+    </script>
+
+    <!-- Header -->
+    <h1 id="welcome-message" style="display: none; text-align: center; color: rgb(74, 36, 36); margin-top: 20px; font-size: 36px; opacity: 5;">
+        Welcome and Jay Swaminarayan to my website!
+    </h1>
+
+    <!-- Three-Dash Menu -->
+    <div onclick="toggleMenu()" style="position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 30px; color: white; transition: transform 0.3s;">
+        &#9776;
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div id="menu" style="display: none; position: absolute; top: 50px; right: 10px; background: white; padding: 10px; border: 1px solid black; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
+        <p style="margin: 5px 0; cursor: pointer;" onclick="showContact()">Contact</p>
+        <p style="margin: 5px 0; cursor: pointer;" onclick="showAbout()">About</p>
+    </div>
+
+    <!-- Content Container -->
+    <div style="text-align: center; margin-top: 100px;">
+
+        <!-- Contact Section -->
+        <div id="contact" style="display: none; background: white; width: 80%; padding: 15px; margin: 0 auto; border: 1px solid black; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
+            <h3>Contact Information</h3>
+            <p>Email: <a href="mailto:jaydipdamor45170@gmail.com">jaydipdamor45170@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/JaydipDamor" target="_blank">https://github.com/JaydipDamor</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/jaydipdamor" target="_blank">https://www.linkedin.com/in/jaydipdamor</a></p>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" style="display: none; background: white; width: 80%; padding: 15px; margin: 0 auto; border: 1px solid black; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
+            <h3>About Me</h3>
+            <p>Hello, I’m Jaydip Damor, a third-year student at IIT Bombay. I’m passionate about Artificial Intelligence (AI) and Machine Learning (ML), exploring ways to create intelligent systems that learn and evolve from data. Check out my projects to see how AI/ML is shaping the future!</p>
+        </div>
+
+        <!-- Image Carousel -->
+        <div id="carousel" style="position: relative; margin: 20px auto; width: 80%; height: 400px; overflow: hidden; border-radius: 15px; box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);">
+            <img id="image" src="MSM giving blessings.jpg" alt="Image" style="
+                display: block; 
+                width: 100%; 
+                height: 100%; 
+                object-fit: cover; 
+                object-position: top; 
+                border-radius: 15px; 
+                transition: opacity 1s ease-in-out;">
+        </div>
+
+        <!-- Quote Section (Below Image) -->
+        <div style="text-align: center; color: white; font-size: 24px; font-weight: bold; margin-top: 40px;">
+            <p>"HARD WORK + PRAYER = SUCCESS"</p>
+            <p>- Pramukh Swami Maharaj</p>
+        </div>
+    </div>
+
+    <script>
+        // Image Carousel Logic
+        const images = [
+            "MSM giving blessings.jpg",
+            "2024_09_22_061_Mumbai.jpg",
+            "WhatsApp Image 2023-08-04 at 16.41.35.jpg",
+            "psm.jpg"
+        ];
+        let currentIndex = 0;
+
+        function changeImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            let imageElement = document.getElementById("image");
+            imageElement.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                imageElement.src = images[currentIndex];
+                imageElement.style.opacity = 1; // Fade in
+            }, 1000); // Wait for fade out
+        }
+
+        setInterval(changeImage, 5000); // Change image every 5 seconds
+
+        // Toggle Dropdown Menu
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+
+        // Show Contact Section
+        function showContact() {
+            document.getElementById("contact").style.display = "block";
+            document.getElementById("about").style.display = "none"; // Hide about section
+        }
+
+        // Show About Section
+        function showAbout() {
+            document.getElementById("about").style.display = "block";
+            document.getElementById("contact").style.display = "none"; // Hide contact section
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer style="text-align: center; margin-top: auto; padding: 10px; background: white; color: black; font-size: 14px; border-top: 2px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        &copy; 2025 Jaydip Damor. All rights reserved.
+    </footer>
+
+</body>
+</html>
